@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Néon stable</title>
+<style>
+:root{
+  --size: 250px;
+  --bg: #020406;
+  --glow1: rgba(0,230,255,1);
+  --glow2: rgba(0,140,200,0.5);
+  --core1: rgba(180,255,255,1);
+  --core2: rgba(0,200,255,0.9);
+}
+
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--bg);
+}
+
+.neon-cercle{
+  width:calc(var(--size) + 36px);
+  height:calc(var(--size) + 36px);
+  border-radius:50%;
+  position:relative;
+  background:radial-gradient(circle at 50% 50%, rgba(0,10,15,.4), #000 80%);
+  box-shadow:0 0 90px rgba(0,255,255,.1);
+}
+
+.zone{
+  position:absolute;
+  width:22%;
+  height:22%;
+  border-radius:12px;
+  background:radial-gradient(circle at 40% 35%, var(--core1) 0%, var(--core2) 40%, rgba(0,100,120,.6) 100%);
+  box-shadow:0 0 20px var(--glow1), 0 0 60px var(--glow2);
+  opacity:0;
+}
+
+.z1{ top:4%; left:38%; }
+.z2{ top:14%; right:14%; }
+.z3{ right:4%; top:38%; }
+.z4{ right:14%; bottom:22%; }
+.z5{ bottom:4%; right:38%; }
+.z6{ bottom:14%; left:14%; }
+.z7{ left:4%; bottom:38%; }
+.z8{ left:14%; top:14%; }
+.centre{ width:30%; height:30%; top:35%; left:35%; }
+
+.animate{
+  animation:blink 1s linear forwards;
+}
+
+@keyframes blink{
+  0%{ opacity:0; }
+  10%{ opacity:1; }
+  20%{ opacity:0.2; }
+  30%{ opacity:1; }
+  40%{ opacity:0; }
+  50%{ opacity:1; }
+  60%{ opacity:0.3; }
+  70%{ opacity:1; }
+  80%{ opacity:0; }
+  90%{ opacity:1; }
+  100%{ opacity:1; }
+}
+</style>
+</head>
+<body>
+<div class="neon-cercle">
+  <div class="zone z1 animate"></div>
+  <div class="zone z2 animate" style="animation-delay:0.125s"></div>
+  <div class="zone z3 animate" style="animation-delay:0.25s"></div>
+  <div class="zone z4 animate" style="animation-delay:0.375s"></div>
+  <div class="zone z5 animate" style="animation-delay:0.5s"></div>
+  <div class="zone z6 animate" style="animation-delay:0.625s"></div>
+  <div class="zone z7 animate" style="animation-delay:0.75s"></div>
+  <div class="zone z8 animate" style="animation-delay:0.875s"></div>
+  <div class="zone centre animate" style="animation-delay:1s"></div>
+</div>
+</body>
+</html>
